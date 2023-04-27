@@ -6,9 +6,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main>
-      <div className="no-scroll-overlay"></div>
+    <div>
+      {/* <div className="no-scroll-overlay"></div> */}
       <WelcomeScreen />
-    </main>
+    </div>
   );
 }
