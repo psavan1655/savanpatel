@@ -1,14 +1,33 @@
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import WelcomeScreen from "@/modules/common/welcome-screen";
-
-const inter = Inter({ subsets: ["latin"] });
+import { motion } from "framer-motion";
+import React from "react";
+import HeroSection from "@/modules/home/hero-section";
+import Sample from "@/modules/common/sample";
+import PageHead from "@/modules/common/page-head";
 
 export default function Home() {
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
   return (
-    <div>
-      {/* <div className="no-scroll-overlay"></div> */}
-      <WelcomeScreen />
-    </div>
+    <>
+      <PageHead />
+      <motion.div>
+        {loading ? (
+          <WelcomeScreen />
+        ) : (
+          <>
+            <HeroSection />
+            <Sample />
+          </>
+        )}
+      </motion.div>
+    </>
   );
 }

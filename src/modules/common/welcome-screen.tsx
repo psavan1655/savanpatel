@@ -30,18 +30,23 @@ const WelcomeScreen = () => {
     if (activeTitle <= languages.length) {
       timeFn = setInterval(() => {
         setActiveTitle((prevActiveTitle) => prevActiveTitle + 1);
-        console.log(activeTitle);
 
         if (activeTitle === languages.length - 1) {
           clearInterval(timeFn!);
         }
-      }, 400);
+      }, 100);
     }
     return () => clearInterval(timeFn!);
   }, [activeTitle]);
 
   return (
-    <div className={`w-full h-screen  ${styles.loadingTitle}`}>
+    <motion.div
+      className={`h-screen cursor-wait`}
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 0.8 }}
+      exit={{ opacity: 1, y: "0%" }}
+      transition={{ duration: 2 }}
+    >
       {languages.map((lang, idx) => {
         if (activeTitle === idx) {
           return (
@@ -51,14 +56,74 @@ const WelcomeScreen = () => {
               // animate="animate"
               variants={variants}
               transition={{ duration: 1 }}
+              className={styles.loadingTitle}
             >
               <div className="!text-7xl">&#x2022; {`${lang.greeting}`}</div>
             </motion.div>
           );
         }
       })}
-    </div>
+    </motion.div>
   );
 };
 
 export default WelcomeScreen;
+
+// import { motion, useAnimation } from 'framer-motion';
+// import { useEffect } from 'react';
+
+// function WelcomeScreen() {
+//   const controls = useAnimation();
+
+//   useEffect(() => {
+//     const initLoaderHome = async () => {
+//       // Initial styles for the loader
+//       controls.set({ y: '0%', opacity: 1 });
+
+//       // Animate loader out of the viewport
+//       await controls.start({
+//         y: '-100%',
+//         opacity: 0,
+//         transition: { duration: 0.8, ease: 'power4.easeInOut' },
+//       });
+
+//       // Reset loader styles
+//       controls.set({ y: '100%', opacity: 1 });
+
+//       // Animate main content into view
+//       await controls.start({
+//         y: '0%',
+//         transition: {
+//           duration: 1.5,
+//           ease: 'expo.easeOut',
+//           delayChildren: 0.8,
+//           staggerChildren: 0.07,
+//         },
+//       });
+//     };
+
+//     initLoaderHome();
+//   }, [controls]);
+
+//   return (
+//     <motion.div className="loading-screen" animate={controls}>
+//       <motion.div className="rounded-div-wrap top">
+//         <motion.div className="rounded-div" />
+//       </motion.div>
+
+//       <motion.div className="loading-words">
+//         <motion.h2 className="home-active home-active-first">
+//           Hello<div className="dot" />
+//         </motion.h2>
+
+//         <motion.h2 className="home-active">
+//           Bonjour<div className="dot" />
+//         </motion.h2>
+
+//         <motion.h2 className="home-active home-active-last" />
+//       </motion.div>
+
+//       <motion.div className="rounded-div-wrap bottom" layout />
+//     </motion.div>
+//   );
+// }

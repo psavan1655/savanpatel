@@ -1,0 +1,23 @@
+.ferris-wheel-techs {
+  right: 0%;
+  height: 70%;
+  top: 0%;
+  position: absolute;
+  overflow: hidden;
+  rotate: -90deg;
+}
+
+.tech-icon {
+  height: 40px;
+  pointer-events: none;
+  rotate: 90deg;
+}
+
+.home-screen-background {
+  background: rgb(5, 5, 91);
+  background: radial-gradient(
+    circle,
+    rgba(5, 5, 91, 1) 0%,
+    rgba(3, 1, 25, 1) 100%
+  );
+}
