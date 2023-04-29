@@ -43,7 +43,6 @@ const HeroSection = () => {
                     duration: 15,
                     ease: "linear",
                   },
-                  // delayChildren: 2,
                 },
               },
             }}

@@ -83,6 +83,7 @@ body {
   font-size: clamp(16px, 1.2vw, 19px);
   background-color: var(--color-dark);
   height: 100%;
+  overflow-x: hidden;
 }
 
 html,
@@ -153,6 +154,10 @@ body {
   font-weight: 800;
   font-style: italic;
   font-display: auto;
+}
+
+.header-logo {
+  font-family: "Alex Brush", cursive;
 }
 
 ::-webkit-scrollbar {

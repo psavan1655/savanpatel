@@ -26,7 +26,7 @@ const WelcomeScreen = () => {
   };
 
   useEffect(() => {
-    let timeFn = null;
+    let timeFn: any = null;
     if (activeTitle <= languages.length) {
       timeFn = setInterval(() => {
         setActiveTitle((prevActiveTitle) => prevActiveTitle + 1);

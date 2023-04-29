@@ -5,6 +5,8 @@ import React from "react";
 import HeroSection from "@/modules/home/hero-section";
 import Sample from "@/modules/common/sample";
 import PageHead from "@/modules/common/page-head";
+import Header from "@/modules/common/header";
+import AboutMe from "@/modules/about-me";
 
 export default function Home() {
   const [loading, setLoading] = React.useState(true);
@@ -23,8 +25,9 @@ export default function Home() {
           <WelcomeScreen />
         ) : (
           <>
+            <Header />
             <HeroSection />
-            <Sample />
+            <AboutMe />
           </>
         )}
       </motion.div>
