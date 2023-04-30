@@ -10,9 +10,12 @@ import HeroSection from "@/modules/home/hero-section";
 import Projects from "@/modules/work";
 import { motion } from "framer-motion";
 
-export default function Home() {
-  const [loading, setLoading] = useState(true);
+interface Home {
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+export default function Home({ loading, setLoading }: Home) {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
