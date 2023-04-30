@@ -1,9 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import React from "react";
-import TechSkillWheel from "../common/tech-skill-wheel";
-import Link from "next/link";
-import Image from "next/image";
 import LocationHanger from "./location-hanger";
+import TechSkillWheel from "../common/components/tech-skill-wheel";
 
 const HeroSection = () => {
   const { scrollYProgress } = useScroll();
@@ -15,6 +13,7 @@ const HeroSection = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ ease: "easeOut", duration: 1 }}
+      data-scroll-section
       className="relative h-screen w-full overflow-x-hidden bg-[#999d9e]"
     >
       {[1, 2].map((num) => (

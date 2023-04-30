@@ -42,6 +42,9 @@ const WelcomeScreen = () => {
   return (
     <motion.div
       className={`h-screen cursor-wait`}
+      data-scroll
+      data-scroll-speed="1"
+      data-scroll-delay="2"
       initial={{ opacity: 1 }}
       animate={{ opacity: 0.8 }}
       exit={{ opacity: 1, y: "0%" }}
