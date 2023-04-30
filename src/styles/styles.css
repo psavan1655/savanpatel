@@ -469,3 +469,44 @@
 .get-in-touch {
   transform: translate(-50%, -110%);
 }
+
+.rounded-div-illusion {
+  border-radius: 0 0 180% 180%;
+}
+
+.footer-circle-liquid {
+  /* background-color: black; */
+  transition: 0.4s;
+}
+
+.footer-circle-liquid:hover,
+.footer-circle-liquid:focus {
+  color: white;
+}
+
+.footer-circle-liquid {
+  overflow: hidden;
+}
+
+.footer-circle-liquid:hover::after,
+.footer-circle-liquid:focus::after {
+  transform: translateY(-70%);
+}
+
+.footer-circle-liquid::after {
+  content: "";
+  position: absolute;
+  background: #455cff;
+  width: 200%;
+  height: 200%;
+  border-radius: 50%;
+  /* transform: translateY(100%); */
+  transform: translate(-50%, 0%);
+  z-index: 0;
+  transition: 1s;
+}
+
+.footer-circle-liquid span {
+  position: relative;
+  z-index: 1;
+}
