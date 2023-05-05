@@ -1,54 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
+import { useMagnetButton } from "../common/hooks/useMagnateButton";
 
 const AboutMe = () => {
+  const { controls, textControls, buttonRef, handleHover, handleHoverEnd } =
+    useMagnetButton();
+
   const { scrollYProgress } = useScroll();
-  const x = useTransform(scrollYProgress, [0, 1], ["-50%", "10%"]);
-
-  const buttonRef = useRef<any>(null);
-  const [textPosition, setTextPosition] = useState({ x: 90, y: 85 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: any) => {
-      const buttonRect = buttonRef.current.getBoundingClientRect();
-      const mouseX = e.clientX - buttonRect.left;
-      const mouseY = e.clientY - buttonRect.top;
-
-      setTextPosition({ x: mouseX, y: mouseY });
-    };
-
-    const handleMouseLeave = () => {
-      setTextPosition({ x: 90, y: 85 });
-    };
-
-    buttonRef.current.addEventListener("mousemove", handleMouseMove);
-
-    buttonRef.current.addEventListener("mouseleave", handleMouseLeave);
-
-    return () => {
-      buttonRef.current.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
-  const getYValues = (value: number) => {
-    if (value < 30) {
-      return 30;
-    } else if (value > 170) {
-      return 170;
-    } else {
-      return value;
-    }
-  };
-
-  const getXValues = (value: number) => {
-    if (value < 30) {
-      return 30 - 20;
-    } else if (value > 120) {
-      return 120 - 30;
-    } else {
-      return value - 30;
-    }
-  };
+  const x = useTransform(scrollYProgress, [0, 1], ["-20%", "100%"]);
 
   return (
     <motion.div className="relative min-h-screen bg-white overflow-hidden">
@@ -86,21 +45,16 @@ const AboutMe = () => {
         in a unique place in the Full Stack Web world.
       </motion.div>
 
-      <div
+      <motion.div
         className="absolute flex items-center justify-center h-[200px] w-[200px] rounded-full bg-black bottom-40 right-40 circle-liquid text-xl cursor-pointer"
         ref={buttonRef}
+        onHoverStart={handleHover}
+        onHoverEnd={handleHoverEnd}
+        animate={controls}
+        whileTap={{ scale: 0.8, type: "easeInOut" }}
       >
-        <span
-          style={{
-            position: "absolute",
-            top: `${getYValues(textPosition.y)}px`,
-            left: `${getXValues(textPosition.x)}px`,
-            transition: "all 0.5s ease-out",
-          }}
-        >
-          About me
-        </span>
-      </div>
+        <motion.span animate={textControls}>About me</motion.span>
+      </motion.div>
     </motion.div>
   );
 };

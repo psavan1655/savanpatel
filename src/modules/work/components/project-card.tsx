@@ -6,15 +6,12 @@ const ProjectCard = () => {
   return (
     <div className="w-1/2 px-8 text-black my-16">
       <div className="flex flex-col overflow-hidden">
-        <motion.div
-          className="flex relative border-2 aspect-square h-full w-full bg-[#999d9e] overflow-y-hidden"
-          //   whileHover={{ scale: 1.1 }}
-        >
+        <motion.div className="flex relative border-2 aspect-square h-full w-full bg-[#999d9e] overflow-y-hidden">
           <Image
-            src={"/assets/tech-stack-icons/tailwind-css.svg"}
-            alt={"Tailwind css"}
+            src={"/assets/icons/portrait-cropped.JPG"}
+            alt={"Project title"}
             fill
-            className="absolute flex max-w-full max-h-full object-contain overflow-hidden"
+            className="flex object-contain overflow-hidden"
           />
         </motion.div>
         <div className="flex flex-col mt-8">
