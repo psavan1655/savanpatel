@@ -14,10 +14,10 @@ const Projects = () => {
         <div className="border-b-2 my-10" />
 
         <div className="flex flex-wrap">
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
+          <ProjectCard title="PagarBook" />
+          <ProjectCard title="Joyn" />
+          <ProjectCard title="Bankkeeping" />
+          <ProjectCard title="Protocol Builder" />
         </div>
 
         <div className="flex w-full justify-center">

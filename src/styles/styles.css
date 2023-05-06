@@ -536,7 +536,6 @@
   width: 200%;
   height: 200%;
   border-radius: 50%;
-  /* transform: translateY(100%); */
   transform: translate(-50%, 0%);
   z-index: 0;
   transition: 1s;
@@ -545,4 +544,46 @@
 .footer-circle-liquid span {
   position: relative;
   z-index: 1;
+}
+
+.view-cursor {
+  position: absolute;
+  background-color: #455cff;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  z-index: 99999999;
+  pointer-events: none;
+}
+
+@keyframes digitalball {
+  0% {
+    background: #999d9e;
+  }
+  25% {
+    background: #ee8d4c;
+  }
+  50% {
+    background: #47a754;
+  }
+  100% {
+    background: #999d9e;
+  }
+}
+
+.about-flag-ball:hover {
+  background: var(--color-dark);
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--color-blue);
+}
+
+.about-flag-ball:hover {
+  /* opacity: 0; */
+  transition: opacity 1s ease-in-out;
+  animation: digitalball 6s ease-in-out infinite;
+}
+
+.line-globe .about-flag-ball:hover {
+  opacity: 1;
 }

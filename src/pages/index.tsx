@@ -8,7 +8,7 @@ import AboutMe from "@/modules/about-me";
 import HeroSection from "@/modules/home/hero-section";
 
 import Projects from "@/modules/work";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface Home {
   loading: boolean;
@@ -24,18 +24,19 @@ export default function Home({ loading, setLoading }: Home) {
 
   return (
     <>
-      <PageHead />
-
-      <motion.div>
+      <motion.div className="bg-[#999d9e]">
         {loading ? (
-          <WelcomeScreen />
+          <AnimatePresence>
+            <WelcomeScreen />
+          </AnimatePresence>
         ) : (
-          <>
-            <Header />
-            <HeroSection />
-            <AboutMe />
-            <Projects />
-          </>
+          <AnimatePresence>
+            <PageHead key="PageHead" />
+            <Header key="header" />
+            <HeroSection key="HeroSection" />
+            <AboutMe key="AboutMe" />
+            <Projects key="Projects" />
+          </AnimatePresence>
         )}
       </motion.div>
     </>
