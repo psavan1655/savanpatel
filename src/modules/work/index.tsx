@@ -13,7 +13,7 @@ const Projects = () => {
         <span className="text-sm text-[#999d9e] mx-10">RECENT WORK</span>
         <div className="border-b-2 my-10" />
 
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap justify-between">
           <ProjectCard title="PagarBook" />
           <ProjectCard title="Joyn" />
           <ProjectCard title="Bankkeeping" />
