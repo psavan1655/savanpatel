@@ -28,7 +28,7 @@ const HeroSection = () => {
           }}
         >
           <motion.div
-            className="flex absolute bottom-0 w-full text-[200px]"
+            className="flex absolute bottom-10 w-full text-[200px]"
             key={1}
             initial="initial"
             animate={["animate", "initialHide"]}

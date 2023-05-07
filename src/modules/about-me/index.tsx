@@ -1,13 +1,19 @@
 import React, { useRef } from "react";
 import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
 import { useMagnetButton } from "../common/hooks/useMagnateButton";
+import { useRouter } from "next/router";
 
 const AboutMe = () => {
+  const router = useRouter();
   const { controls, textControls, buttonRef, handleHover, handleHoverEnd } =
     useMagnetButton();
 
   const { scrollYProgress } = useScroll();
   const x = useTransform(scrollYProgress, [0, 1], ["-20%", "100%"]);
+
+  const navigateToAboutPage = () => {
+    router.push("/about");
+  };
 
   return (
     <motion.div className="relative min-h-screen bg-white overflow-hidden">
@@ -52,6 +58,7 @@ const AboutMe = () => {
         onHoverEnd={handleHoverEnd}
         animate={controls}
         whileTap={{ scale: 0.8, type: "easeInOut" }}
+        onClick={navigateToAboutPage}
       >
         <motion.span animate={textControls}>About me</motion.span>
       </motion.div>
